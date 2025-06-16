@@ -67,6 +67,12 @@ public class UpdateInfoEventArgs : EventArgs
     public Mandatory Mandatory { get; set; }
 
     /// <summary>
+    ///     Flag for allowing downgrade.
+    /// </summary>
+    [XmlElement("downgrade")]
+    public bool AllowedDowngrade { get; set; }
+
+    /// <summary>
     ///     Executable path of the updated application relative to installation directory.
     /// </summary>
     [XmlElement("executable")]
