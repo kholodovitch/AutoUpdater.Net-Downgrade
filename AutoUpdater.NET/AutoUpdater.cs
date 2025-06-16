@@ -439,7 +439,8 @@ public static class AutoUpdater
         }
 
         args.InstalledVersion = InstalledVersion ?? mainAssembly.GetName().Version;
-        args.IsUpdateAvailable = new Version(args.CurrentVersion) > args.InstalledVersion;
+        args.IsUpdateAvailable = new Version(args.CurrentVersion) > args.InstalledVersion ||
+                                 (args.AllowedDowngrade && new Version(args.CurrentVersion) != args.InstalledVersion);
 
         if (!Mandatory)
         {
